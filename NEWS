@@ -1,0 +1,31 @@
+Changes in version 1.8:
+
+The new options '--in-slots' and '--out-slots', setting the number of input
+and output packets buffered during streamed decompression, have been added.
+Increasing the number of packets may increase decompression speed, but
+requires more memory.
+
+The default number of input packets buffered per worker thread when
+decompressing from non-seekable input has been increased from 2 to 4.
+
+The default number of output packets buffered per worker thread when
+decompressing to non-seekable output has been increased from 32 to 64.
+
+Detection of forbidden combinations of characters in trailing data has been
+improved.
+
+Errors are now also checked when closing the input file.
+
+The descriptions of '-0..-9', '-m' and '-s' in the manual have been
+improved.
+
+The configure script now accepts the option '--with-mingw' to enable the
+compilation of plzip under MS Windows (with the MinGW compiler). Use with
+care. The Windows I/O functions used are not guaranteed to be thread safe.
+(Code based on a patch by Hannes Domani).
+
+The configure script now accepts appending options to CXXFLAGS using the
+syntax 'CXXFLAGS+=OPTIONS'.
+
+It has been documented in INSTALL the use of
+CXXFLAGS+='-D __USE_MINGW_ANSI_STDIO' when compiling on MinGW.
