@@ -6,7 +6,7 @@
 #
 Name     : plzip
 Version  : 1.8
-Release  : 1
+Release  : 2
 URL      : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
 Source99 : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz.sig
@@ -66,22 +66,26 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547099286
+export SOURCE_DATE_EPOCH=1547166752
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1547099286
+export SOURCE_DATE_EPOCH=1547166752
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plzip
 cp COPYING %{buildroot}/usr/share/package-licenses/plzip/COPYING
 %make_install
+## install_append content
+ln -s plzip %{buildroot}/usr/bin/lzip
+## install_append end
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/lzip
 /usr/bin/plzip
 
 %files doc
