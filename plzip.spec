@@ -6,14 +6,15 @@
 #
 Name     : plzip
 Version  : 1.8
-Release  : 2
+Release  : 3
 URL      : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
-Source99 : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz.sig
+Source1 : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: plzip-bin = %{version}-%{release}
+Requires: plzip-info = %{version}-%{release}
 Requires: plzip-license = %{version}-%{release}
 Requires: plzip-man = %{version}-%{release}
 BuildRequires : lzlib-dev
@@ -27,19 +28,17 @@ compatible with lzip 1.4 or newer. Plzip uses the lzlib compression library.
 Summary: bin components for the plzip package.
 Group: Binaries
 Requires: plzip-license = %{version}-%{release}
-Requires: plzip-man = %{version}-%{release}
 
 %description bin
 bin components for the plzip package.
 
 
-%package doc
-Summary: doc components for the plzip package.
-Group: Documentation
-Requires: plzip-man = %{version}-%{release}
+%package info
+Summary: info components for the plzip package.
+Group: Default
 
-%description doc
-doc components for the plzip package.
+%description info
+info components for the plzip package.
 
 
 %package license
@@ -60,21 +59,27 @@ man components for the plzip package.
 
 %prep
 %setup -q -n plzip-1.8
+cd %{_builddir}/plzip-1.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1547166752
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1573790425
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1547166752
+export SOURCE_DATE_EPOCH=1573790425
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plzip
-cp COPYING %{buildroot}/usr/share/package-licenses/plzip/COPYING
+cp %{_builddir}/plzip-1.8/COPYING %{buildroot}/usr/share/package-licenses/plzip/244611d3ffa10dc67244ec317e7235aa5779f42a
 %make_install
 ## install_append content
 ln -s plzip %{buildroot}/usr/bin/lzip
@@ -88,13 +93,13 @@ ln -s plzip %{buildroot}/usr/bin/lzip
 /usr/bin/lzip
 /usr/bin/plzip
 
-%files doc
+%files info
 %defattr(0644,root,root,0755)
-%doc /usr/share/info/*
+/usr/share/info/plzip.info
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/plzip/COPYING
+/usr/share/package-licenses/plzip/244611d3ffa10dc67244ec317e7235aa5779f42a
 
 %files man
 %defattr(0644,root,root,0755)
