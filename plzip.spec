@@ -6,10 +6,10 @@
 #
 Name     : plzip
 Version  : 1.8
-Release  : 3
+Release  : 4
 URL      : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
-Source1 : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz.sig
+Source1  : http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -66,17 +66,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573790425
+export SOURCE_DATE_EPOCH=1605131672
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1573790425
+export SOURCE_DATE_EPOCH=1605131672
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plzip
 cp %{_builddir}/plzip-1.8/COPYING %{buildroot}/usr/share/package-licenses/plzip/244611d3ffa10dc67244ec317e7235aa5779f42a
