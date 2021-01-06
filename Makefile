@@ -1,5 +1,5 @@
 PKG_NAME := plzip
-URL = http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.8.tar.gz
+URL = https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
