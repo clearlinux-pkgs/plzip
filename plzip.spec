@@ -6,7 +6,7 @@
 #
 Name     : plzip
 Version  : 1.9
-Release  : 5
+Release  : 6
 URL      : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz
 Source0  : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz
 Source1  : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz.sig
