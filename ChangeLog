@@ -1,3 +1,13 @@
+2022-01-24  Antonio Diaz Diaz  <antonio@gnu.org>
+
+	* Version 1.10 released.
+	* main.cc (getnum): Show option name and valid range if error.
+	  (check_lib): Check that LZ_API_VERSION and LZ_version_string match.
+	* Set variable LIBS from configure.
+	* Improve several descriptions in manual, '--help', and man page.
+	* plzip.texi: Change GNU Texinfo category to 'Compression'.
+	  (Reported by Alfred M. Szmidt).
+
 2021-01-03  Antonio Diaz Diaz  <antonio@gnu.org>
 
 	* Version 1.9 released.
@@ -37,7 +47,7 @@
 	* main.cc (main): Check return value of close( infd ).
 	* plzip.texi: Improve description of '-0..-9', '-m', and '-s'.
 	* configure: New option '--with-mingw'.
-	* configure: Accept appending to CXXFLAGS, 'CXXFLAGS+=OPTIONS'.
+	* configure: Accept appending to CXXFLAGS; 'CXXFLAGS+=OPTIONS'.
 	* INSTALL: Document use of CXXFLAGS+='-D __USE_MINGW_ANSI_STDIO'.
 
 2018-02-07  Antonio Diaz Diaz  <antonio@gnu.org>
@@ -164,7 +174,7 @@
 	* Small portability fixes.
 	* plzip.texinfo: New chapter 'Program Design'.
 	  Add missing description of option '-n, --threads'.
-	* Debug stats have been fixed.
+	* Fix debug statistics.
 
 2010-02-10  Antonio Diaz Diaz  <ant_diaz@teleline.es>
 
@@ -210,7 +220,7 @@
             until something better appears on the net.
 
 
-Copyright (C) 2009-2021 Antonio Diaz Diaz.
+Copyright (C) 2009-2022 Antonio Diaz Diaz.
 
 This file is a collection of facts, and thus it is not copyrightable,
 but just in case, you have unlimited permission to copy, distribute, and

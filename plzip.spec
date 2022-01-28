@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x8FE99503132D7742 (antonio@gnu.org)
 #
 Name     : plzip
-Version  : 1.9
-Release  : 6
-URL      : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz
-Source0  : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz
-Source1  : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz.sig
+Version  : 1.10
+Release  : 7
+URL      : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.10.tar.gz
+Source0  : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.10.tar.gz
+Source1  : https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.10.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -58,15 +58,15 @@ man components for the plzip package.
 
 
 %prep
-%setup -q -n plzip-1.9
-cd %{_builddir}/plzip-1.9
+%setup -q -n plzip-1.10
+cd %{_builddir}/plzip-1.10
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609957166
+export SOURCE_DATE_EPOCH=1643396602
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -76,10 +76,10 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1609957166
+export SOURCE_DATE_EPOCH=1643396602
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plzip
-cp %{_builddir}/plzip-1.9/COPYING %{buildroot}/usr/share/package-licenses/plzip/244611d3ffa10dc67244ec317e7235aa5779f42a
+cp %{_builddir}/plzip-1.10/COPYING %{buildroot}/usr/share/package-licenses/plzip/244611d3ffa10dc67244ec317e7235aa5779f42a
 %make_install
 ## install_append content
 ln -s plzip %{buildroot}/usr/bin/lzip
