@@ -1,9 +1,18 @@
+2024-01-21  Antonio Diaz Diaz  <antonio@gnu.org>
+
+	* Version 1.11 released.
+	* main.cc: Reformat file diagnostics as 'PROGRAM: FILE: MESSAGE'.
+	  (show_option_error): New function showing argument and option name.
+	  (main): Make -o preserve date/mode/owner if 1 input file.
+	  (open_outstream): Create missing intermediate directories.
+	* configure, Makefile.in: New variable 'MAKEINFO'.
+
 2022-01-24  Antonio Diaz Diaz  <antonio@gnu.org>
 
 	* Version 1.10 released.
 	* main.cc (getnum): Show option name and valid range if error.
 	  (check_lib): Check that LZ_API_VERSION and LZ_version_string match.
-	* Set variable LIBS from configure.
+	* configure: Set variable LIBS.
 	* Improve several descriptions in manual, '--help', and man page.
 	* plzip.texi: Change GNU Texinfo category to 'Compression'.
 	  (Reported by Alfred M. Szmidt).
@@ -220,8 +229,7 @@
             until something better appears on the net.
 
 
-Copyright (C) 2009-2022 Antonio Diaz Diaz.
+Copyright (C) 2009-2024 Antonio Diaz Diaz.
 
-This file is a collection of facts, and thus it is not copyrightable,
-but just in case, you have unlimited permission to copy, distribute, and
-modify it.
+This file is a collection of facts, and thus it is not copyrightable, but just
+in case, you have unlimited permission to copy, distribute, and modify it.
